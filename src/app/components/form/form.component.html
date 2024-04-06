@@ -1,0 +1,42 @@
+<div class="form-wrapper">
+  <form [formGroup]="formGroup" (ngSubmit)="onAddTask()">
+    <mat-form-field>
+      <mat-label>Название задачи</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Срок выполнения</mat-label>
+      <input matInput [matDatepicker]="picker"  formControlName="deadline"/>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Приоритет</mat-label>
+      <mat-select formControlName="priority">
+        <mat-option value="low">Низкий</mat-option>
+        <mat-option value="middle">Средний</mat-option>
+        <mat-option value="high">Высокий</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Статус</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="done">Выполнено</mat-option>
+        <mat-option value="not-done">Невыполнено</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Исполнители</mat-label>
+      <mat-select formControlName="performer">
+        <mat-option value="one">Евлампий</mat-option>
+        <mat-option value="two">Сергей</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" mat-raised-button>Сохранить</button>
+  </form>
+</div>
