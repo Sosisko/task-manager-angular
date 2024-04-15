@@ -44,6 +44,9 @@ export class TasksListComponent {
   ngOnInit(): void {
     this.tasks = this.taskService.getTasks();
     console.log(this.tasks);
+    // this.taskService.getTasks().subscribe((tasks) => {
+    //   this.tasks = tasks;
+    // });
   }
 
   displayedColumns: string[] = [
@@ -56,6 +59,12 @@ export class TasksListComponent {
   ];
 
   constructor(public dialog: MatDialog, private taskService: TasksService) {}
+
+  click(taskId: number) {
+    console.log('Clicked on task with id:', taskId);
+    // Далее вы можете выполнить нужные действия с этим id, например, открыть детали задачи или выполнить другие операции
+  }
+
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
